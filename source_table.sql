@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS mock_data;
+
 CREATE TABLE mock_data (
     id INTEGER,
     customer_first_name VARCHAR(100),
@@ -56,6 +58,3 @@ CREATE TABLE mock_data (
     supplier_city VARCHAR(100),
     supplier_country VARCHAR(100)
 );
-
-SELECT COUNT(*) FROM mock_data;
-

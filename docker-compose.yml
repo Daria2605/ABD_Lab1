@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   postgres:
@@ -13,6 +13,11 @@ services:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./data/source:/csv
+      - ./source_table.sql:/docker-entrypoint-initdb.d/01_source_table.sql
+      - ./load_data.sql:/docker-entrypoint-initdb.d/02_load_data.sql
+      - ./DDL.sql:/docker-entrypoint-initdb.d/03_ddl.sql
+      - ./DML.sql:/docker-entrypoint-initdb.d/04_dml.sql
 
 volumes:
   postgres_data:
